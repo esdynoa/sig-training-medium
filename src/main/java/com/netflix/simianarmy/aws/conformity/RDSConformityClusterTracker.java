@@ -243,17 +243,6 @@ public class RDSConformityClusterTracker implements ConformityClusterTracker {
 		return Cluster.parseFieldToValueMap(map);
     }                 
     
-    private String millisToFormattedDate(String millisStr) {
-    	String datetime = null;
-    	try {
-    		long millis = Long.parseLong(millisStr);
-    		datetime = AWSResource.DATE_FORMATTER.print(millis);
-    	} catch(NumberFormatException nfe) {
-			LOGGER.error(String.format("Error parsing datetime %s when reading from RDS", millisStr));
-    	}
-    	return datetime;
-    }
-    
     private HashMap<String,String> conformityMapFromJson(String json) throws SQLException {
     	HashMap<String,String> map = new HashMap<>();
     	

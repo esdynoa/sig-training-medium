@@ -273,7 +273,7 @@ public class RDSJanitorResourceTracker implements JanitorResourceTracker {
         return resource;
     }
 
-	private String millisToFormattedDate(String millisStr) {
+	public String millisToFormattedDate(String millisStr) {
 		String datetime = null;
 		try {
 			long millis = Long.parseLong(millisStr);
