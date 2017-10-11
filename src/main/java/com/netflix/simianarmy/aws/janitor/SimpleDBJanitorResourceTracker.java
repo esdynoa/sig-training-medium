@@ -130,19 +130,7 @@ public class SimpleDBJanitorResourceTracker implements JanitorResourceTracker {
 
         List<Item> items = querySimpleDBItems(query.toString());
         Validate.isTrue(items.size() <= 1);
-        if (items.size() == 0) {
-            LOGGER.info(String.format("Not found resource with id %s", resourceId));
-            return null;
-        } else {
-            Resource resource = null;
-            try {
-                resource = parseResource(items.get(0));
-            } catch (Exception e) {
-                // Ignore the item that cannot be parsed.
-                LOGGER.error(String.format("SimpleDB item %s cannot be parsed into a resource.", items.get(0)));
-            }
-            return resource;
-        }
+        return getResource(items);
     }
 
     @Override
@@ -156,7 +144,11 @@ public class SimpleDBJanitorResourceTracker implements JanitorResourceTracker {
 
         List<Item> items = querySimpleDBItems(query.toString());
         Validate.isTrue(items.size() <= 1);
-        if (items.size() == 0) {
+        return getResource(items);
+    }
+    
+    public Resource getResource(List<Item> items){
+    	if (items.size() == 0) {
             LOGGER.info(String.format("Not found resource with id %s and region %s", resourceId, region));
             return null;
         } else {
