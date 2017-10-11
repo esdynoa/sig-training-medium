@@ -56,6 +56,14 @@ public class Conformity {
     public String getRuleId() {
         return ruleId;
     }
+    
+    public String getName() {
+        return RULE_NAME;
+    }
+
+    public String getNonconformingReason() {
+        return reason;
+    }
 
     /**
      * Gets the components that cause the conformity check to fail.

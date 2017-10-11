@@ -95,16 +95,6 @@ public class InstanceTooOld implements ConformityRule {
         return new Conformity(getName(), failedComponents);
     }
 
-    @Override
-    public String getName() {
-        return RULE_NAME;
-    }
-
-    @Override
-    public String getNonconformingReason() {
-        return reason;
-    }
-
     /**
      * Gets the launch time (in milliseconds) for a list of instance ids of the same region. The default
      * implementation is using an AWS client. The method can be overridden in subclasses to get the instance

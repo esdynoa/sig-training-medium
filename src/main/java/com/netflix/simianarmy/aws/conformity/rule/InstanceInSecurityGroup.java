@@ -102,16 +102,6 @@ public class InstanceInSecurityGroup implements ConformityRule {
         return new Conformity(getName(), failedComponents);
     }
 
-    @Override
-    public String getName() {
-        return RULE_NAME;
-    }
-
-    @Override
-    public String getNonconformingReason() {
-        return reason;
-    }
-
     /**
      * Checks whether the collection of security group names are valid. The default implementation here is to check
      * whether the security groups contain the required security groups. The method can be overridden for different
