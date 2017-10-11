@@ -67,13 +67,4 @@ public class InstanceHasStatusUrl implements ConformityRule {
         return new Conformity(getName(), failedComponents);
     }
 
-    @Override
-    public String getName() {
-        return RULE_NAME;
-    }
-
-    @Override
-    public String getNonconformingReason() {
-        return REASON;
-    }
 }
